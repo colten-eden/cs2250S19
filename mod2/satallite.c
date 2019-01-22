@@ -33,14 +33,15 @@ int main()
     printf("Enter the period (T) in seconds: \n");
     scanf("%lf", &period);
     // Height = [(G M T^2)/(4PI^2)]^1/3 - R
-    height = GRAVITY * E_MASS * pow(period, 2); //get the numerator 
-    height = height/(4*pow(PI,2)); // denominator
-    height = pow(height,1/3);
-    height = height - E_RADIUS;
+//    height = GRAVITY * E_MASS * pow(period, 2); //get the numerator 
+//    height = height/(4*pow(PI,2)); // denominator
+//    height = pow(height,1.0/3);
+//    height = cbrt(height);
+    height = cbrt((GRAVITY * E_MASS * pow(period,2))/(4*pow(PI,2))) - E_RADIUS;
 
     //Display result
-    printf("Your satallite after %lf sec is %lf meters from earth\n",
-            period, height);
+    printf("Your satallite after %lf sec is %lf km from earth\n",
+            period, height/1000);
     return 0;
 }
 // Function Definitions
