@@ -20,12 +20,18 @@
 //const int FAHRENHEIT = 1;
 #define CELSIUS 0
 #define FAHRENHEIT 1
+#define BOIL_CEL 100
+#define BOIL_FAHR 212
+#define FREEZE_CEL 0
+#define FREEZE_FAHR 32
+
 // Main Function
 int main()
 {
 //    float temp = 7.9; //Celsius
     double in_temp, out_temp;
     int choice;
+   // int is_boil = 0, is_liquid = 0, is_ice = 0;
     //1)Ask user which temperature mode they want to use
     printf("Welcome to the temperature calculator\n");
     printf("Please enter your choice:\n");
@@ -52,7 +58,40 @@ int main()
         printf("Sorry, you did not entter 0 or 1\n Adios amigo\n");
     return 0;
     }
+
+// Task 2:
+// Test for boiling point, freezing point, and liquid point
+   if(choice == CELSIUS)
+   {
+       if(in_temp >= BOIL_CEL)
+       {
+           printf("Your water is boiling\n");
+       }
+       else if (in_temp > FREEZE_CEL && in_temp < BOIL_CEL)
+       {
+           printf("Your water is liquid\n");
+       }
+       else
+       { 
+           printf("Your water is ice\n");
+       }
+   }
+   else //Fahrenheit
+   {
+        if(in_temp >= BOIL_FAHR)
+        {
+    printf("Your water is boiling\n");
+   }
+        else if (in_temp > FREEZE_FAHR && in_temp < BOIL_FAHR)
+        {
+            printf("Your water is liquid\n");
+        }
+        else
+        {
+            printf("Your water is ice \n");
+        }
 }
-// Function Definitions
+// Switch ex switch(water_state) break; // exit switch statements
 
-
+   return 0;
+}
