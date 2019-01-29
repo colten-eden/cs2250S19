@@ -16,11 +16,10 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
-// Constants
-
-// Function Prototypes
-
+//const int CELSIUS = 0;
+//const int FAHRENHEIT = 1;
+#define CELSIUS 0
+#define FAHRENHEIT 1
 // Main Function
 int main()
 {
@@ -34,14 +33,14 @@ int main()
     scanf("%d", &choice);
     //2) based on choice calucluate celsicus or farenheight 
     
-    if(choice == 0)
+    if(choice == CELSIUS)
     {
         printf("Enter the temperature in Celsius: ");
         scanf("%lf", &in_temp);
         out_temp = (in_temp * 9.0/5) + 32;
         printf("Your temperature in Fahrenheit is : %lf\n", out_temp);
     }
-    else if (choice == 1)
+    else if (choice == FAHRENHEIT)
     {
         printf("Enter the temperature in Fahrenheit: ");
         scanf("%lf", &in_temp);
