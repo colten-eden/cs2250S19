@@ -8,6 +8,10 @@
  *                  Quadrant II: angle between 90-180
  *                  Quadrant III: angle between 180-270
  *                  Quadrant IV: angle between 270-360
+ *                  If angle is 0, then print positive x-axis
+ *                  If angle is 90 then print positive y-axis
+ *                  If anlge is 180 the print negativs x-axis
+ *                  If angle is 270 then print negative y-axis
  *
  *        Version:  1.0
  *        Created:  01/31/2019 08:35:05 AM
@@ -56,6 +60,24 @@ int main()
     else if(angle > 360)
     {
         printf("Incorrect angle!");
+    }
+    else if(angle == 0 || angle == 90 || angle == 180 || angle || 270)
+    {
+        switch(angle)
+        {
+            case 0:
+                printf("The angle is on the positive x axis\n");
+               break;
+            case 90:
+                printf("The angle is on the positive y axis\n");
+               break;
+            case 180:
+                printf("The angle is on the negative x axis\n");
+               break;
+            case 270:
+               printf("The angle is on the negative y axis\n");
+               break;
+        }
     }
     return 0;
 }
