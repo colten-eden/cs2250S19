@@ -12,7 +12,7 @@
  *        Version:  1.0
  *        Created:  01/31/2019 08:35:05 AM
  *       Revision:  none
- *       Compiler:  gcc angle.c -o angle.out
+ *       Compiler:  gcc angle.c -o angle.out -lm
  *
  *         Author:  Colten Eden (), colteneden@mail.weber.edu
  *   Organization:  WSU
@@ -20,10 +20,9 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
+#include <math.h>
+#include <stdlib.h>
 // Constants
-
-// Function Prototypes
 
 // Main Function
 int main()
@@ -31,6 +30,13 @@ int main()
     int angle;
     printf("Please enter an angle: \n");
     scanf("%d", &angle);
+    angle = angle % 360;
+    if(angle < 0)
+    {
+        angle = abs(360 + angle);
+    }
+
+        
     if(angle > 0 && angle <90)
     {
         printf("Your angle is in Quadrant 1");
