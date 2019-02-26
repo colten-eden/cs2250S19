@@ -23,7 +23,7 @@
 // Function Prototypes
 void DisplayPosition(double x, double y);
 void DisplayOrigPosition(double* x, double* y);
-void UpdatePosition(double x, double y, double new_x, double new_y);
+void UpdatePosition(double* x, double* y, double new_x, double new_y);
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -36,10 +36,10 @@ int main(int argc, char* argv[])
     x = atof(argv[1]); // convert the first input param to double
     y = atof(argv[2]); // convert second to param double
     DisplayOrigPosition(&x, &y); // takes two address of type double
+    UpdatePosition(&x,&y, 2.0, 4.0);
+    DisplayOrigPosition(&x, &y); // takes two address of type double
 
-    DisplayPosition(x,y);
-    UpdatePosition(x,y, 2, 4);
-    DisplayPosition(x,y);
+
 
 
 
@@ -67,18 +67,16 @@ void DisplayPosition(double x, double y)
  * ===  FUNCTION  ======================================================================
  *         Name:  UpdatePosition
  *  Description:  Update current point position to a new position
- *  Param: x_new => x coordinate
- *  Param: y_new => y coordinate
+ *  Param: x_new => x coordinate address 
+ *  Param: y_new => y coordinate address
  *  Returns: nothing
  * =====================================================================================
  */
-void UpdatePosition(double x, double y, double new_x, double new_y)
+void UpdatePosition(double* x, double* y, double new_x, double new_y)
 {
     printf("****Updating position****\n");
-    DisplayPosition(x,y);
-    x = new_x;
-    y = new_y;
-    DisplayPosition(x, y);
+    *x = new_x; //Dereference the pointer to update the value
+    *y = new_y;
     printf("****Done Updating Position****\n");
     return;
 }
