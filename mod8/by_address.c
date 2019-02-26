@@ -24,6 +24,7 @@
 void DisplayPosition(double x, double y);
 void DisplayOrigPosition(double* x, double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
+void ResetPosition(double* x, double* y);
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -38,7 +39,8 @@ int main(int argc, char* argv[])
     DisplayOrigPosition(&x, &y); // takes two address of type double
     UpdatePosition(&x,&y, 2.0, 4.0);
     DisplayOrigPosition(&x, &y); // takes two address of type double
-
+    ResetPosition(&x, &y); // Reset vales to origin
+    DisplayOrigPosition(&x, &y); // takes two address of type double
 
 
 
@@ -59,7 +61,7 @@ int main(int argc, char* argv[])
 void DisplayPosition(double x, double y)
 {
     printf("Your current position is (%4.2lf, %4.2lf)\n", x,y);
-    printf("Your current position address it (%p, %p)\n",&x,&y);
+//    printf("Your current position address it (%p, %p)\n",&x,&y);
     return;
 }
 
@@ -94,7 +96,7 @@ void UpdatePosition(double* x, double* y, double new_x, double new_y)
 void DisplayOrigPosition(double* x, double* y)
 {
     printf("Your current position is (%4.2lf, %4.2lf) (orig)\n", *x, *y);
-    printf("Your current original address is (%p, %p) (orig)\n", x, y);
+//    printf("Your current original address is (%p, %p) (orig)\n", x, y);
     // To display the values of pointers/address use the
     // dereference operatro "*". This only applies to pointers
     
@@ -102,7 +104,22 @@ void DisplayOrigPosition(double* x, double* y)
     return;
 }
 
-
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ResetPosition
+ *  Description:  Reset the original values of x and y to zero.
+ *  Param: x => x coordinate address
+ *  Param: y => y coordinate address
+ * =====================================================================================
+ */
+void ResetPosition(double* x, double* y)
+{
+    printf("****Reseting position****\n");
+    *x = 0; // Dereference the pointer to update the value
+    *y = 0;
+    
+    return;
+}
 
 
 
