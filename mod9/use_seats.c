@@ -27,25 +27,23 @@
 int main(void) 
 {
     const int NUM_SEATS = 5;
-    char userKey;
-    int  seatNum;
+    char userKey = '-';
+    int  seatNum = 0;
     Seat allSeats[NUM_SEATS];
     Seat currSeat;
-
-    userKey = '-';
-    seatNum = 0;
-
+    // Initialize array//
     SeatsMakeEmpty(allSeats, NUM_SEATS);
 
-    while (userKey != 'q') {
-        printf("Enter command (p/r/q): \n");
-        scanf(" %c", &userKey);
-
-        if (userKey == 'p') { // Print seats
+    while (userKey != 'q') 
+    {
+        userKey = SeatsMenu();
+        if (userKey == 'p')
+        { // Print seats
             SeatsPrint(allSeats, NUM_SEATS);
             printf("\n");
         }
-        else if (userKey == 'r') { // Reserve seat
+        else if (userKey == 'r') 
+        { // Reserve seat
             printf("Enter seat num: \n");
             scanf("%d", &seatNum);
 
@@ -64,8 +62,23 @@ int main(void)
 
                 printf("Completed.\n\n");
             }
-        }
+        }// end of reservation
         // FIXME: Add option to delete reservations
+        else if(userKey == 'd')
+        {
+            SeatsPrint(allSeats, NUM_SEATS);
+            printf("Enter seat num: \n");
+            scanf("%d", &seatNum);
+            if(!SeatIsEmpty(allSeats[seatNum]))
+            {
+                SeatMakeEmpty(&allSeats[seatNum]);
+            }
+            else 
+            {
+                printf("Seat is empty. \n\n");
+            }
+        }
+
         else if (userKey == 'q') { // Quit
             printf("Quitting.\n");
         }
