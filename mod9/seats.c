@@ -4,8 +4,6 @@
  * @created     : Tuesday Nov 13, 2018 15:12:48 UTC
  */
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
 #include "seats.h"
 
 /*** Functions for Seat ***/

@@ -18,6 +18,7 @@
 #ifndef  SEATS__INC__
 #define  SEATS__INC__
 #include <stdbool.h>
+#include <string.h>
 typedef struct Seat_struct 
 {
     char firstName[50];
